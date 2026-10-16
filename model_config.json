@@ -1,0 +1,10 @@
+{
+    "model": "Balanced Decision Tree",
+    "threshold": 0.5094,
+    "target": "default payment next month",
+    "test_accuracy": 0.771,
+    "test_precision": 0.4845,
+    "test_recall": 0.5546,
+    "test_f1": 0.5172,
+    "test_roc_auc": 0.7592
+}
