@@ -34,4 +34,24 @@ The model is evaluated on a historical dataset and is intended for educational a
 Files
 Credit_Risk_Prediction.ipynb: analysis and modelling notebook.
 credit_risk_model.pkl: trained preprocessing and classification pipeline.
-model_config.json: selected threshold and recorded evaluation metrics.
+model_config.json: selected threshold and recorded evaluation metrics
+
+## Model Monitoring and Data Drift Detection
+
+Extended the credit-risk analysis with a simulated monitoring workflow using the Population Stability Index (PSI) to compare reference training data with an incoming batch.
+
+### Methodology
+- Used the original 24,000-row training feature set as the reference dataset.
+- Created a simulated incoming batch of 5,000 records.
+- Introduced a controlled shift in `PAY_0` to test drift detection.
+- Calculated PSI for all 23 input features and ranked them by drift score.
+
+### Results
+- `PAY_0` recorded a PSI of 2.0048 after the deliberate shift.
+- All other features recorded PSI values of 0.0044 or lower.
+- The monitoring chart highlights the feature with the largest distribution change.
+
+![Feature drift monitoring](feature_drift_monitoring.png)
+
+### Limitations
+The incoming batch and feature shift are simulated for demonstration. Feature drift does not necessarily imply declining predictive performance. Evaluating model performance on incoming data requires reliable ground-truth outcomes.
